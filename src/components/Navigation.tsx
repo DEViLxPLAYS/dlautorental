@@ -50,10 +50,9 @@ export default function Navigation() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 text-lg font-semibold tracking-[0.08em] uppercase text-black"
+            className="flex items-center"
           >
-            <img src="/logo.png" alt="DL Auto Rental Logo" className="h-16 w-auto" />
-            DL Auto Rental
+            <img src="/logo.png" alt="DL Auto Rental Logo" className="h-10 md:h-16 w-auto" />
           </Link>
 
           {/* Desktop Nav Links - Centered */}

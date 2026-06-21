@@ -193,13 +193,13 @@ export default function Fleet() {
         {/* Filters */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
           {/* Type Filters */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0">
-            <Filter size={16} className="text-black/30 flex-shrink-0" />
+          <div className="flex items-center gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-hide snap-x">
+            <Filter size={16} className="text-black/30 flex-shrink-0 hidden md:block" />
             {carTypes.map((type) => (
               <button
                 key={type}
                 onClick={() => setSelectedType(type)}
-                className={`px-4 py-2 rounded-full text-xs uppercase tracking-[0.08em] font-medium transition-all flex-shrink-0 ${
+                className={`px-4 py-2 rounded-full text-xs uppercase tracking-[0.08em] font-medium transition-all flex-shrink-0 snap-start ${
                   selectedType === type
                     ? "bg-black text-white"
                     : "bg-white text-black/60 hover:bg-black/5"
@@ -211,7 +211,7 @@ export default function Fleet() {
           </div>
 
           {/* Search */}
-          <div className="relative w-full md:w-64">
+          <div className="relative w-full md:w-64 flex-shrink-0">
             <Search
               size={16}
               className="absolute left-3 top-1/2 -translate-y-1/2 text-black/30"
@@ -221,7 +221,7 @@ export default function Fleet() {
               placeholder="Search cars..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white rounded-full text-sm border-none outline-none focus:ring-2 focus:ring-[#D4A03A]/30"
+              className="w-full pl-10 pr-4 py-3 md:py-2.5 bg-white rounded-xl md:rounded-full text-sm border-none outline-none focus:ring-2 focus:ring-[#D4A03A]/30"
             />
           </div>
         </div>

@@ -182,10 +182,7 @@ export default function About() {
               </div>
               <div className="relative bg-[#f1f1f1] flex items-center justify-center p-8">
                 <div className="text-center">
-                  <img src="/logo.png" alt="DL Auto Rental Logo" className="h-32 w-auto mx-auto mb-6" />
-                  <p className="text-lg font-bold text-black mb-2">
-                    DL Auto Rental
-                  </p>
+                  <img src="/logo.png" alt="DL Auto Rental Logo" className="h-20 md:h-32 w-auto mx-auto mb-6" />
                   <p className="text-sm text-black/40">
                     6001 Cochran Rd, Solon, OH
                   </p>
