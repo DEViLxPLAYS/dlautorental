@@ -34,9 +34,9 @@ export default function Footer() {
           <div>
             <Link
               to="/"
-              className="flex items-center gap-2 text-lg font-semibold tracking-[0.08em] uppercase text-white mb-4"
+              className="flex items-center gap-3 text-lg font-semibold tracking-[0.08em] uppercase text-white mb-6"
             >
-              <img src="/logo.png" alt="DL Auto Rental Logo" className="h-8 w-auto" />
+              <img src="/logo.png" alt="DL Auto Rental Logo" className="h-16 w-auto" />
               DL Auto Rental
             </Link>
             <p className="text-xs text-white/40 leading-relaxed mb-6">
