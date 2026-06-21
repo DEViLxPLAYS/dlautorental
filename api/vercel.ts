@@ -2,9 +2,9 @@ import { handle } from "hono/vercel";
 import { Hono } from "hono";
 import { bodyLimit } from "hono/body-limit";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
-import { appRouter } from "../router";
-import { createContext } from "../context";
-import { createOAuthCallbackHandler } from "../kimi/auth";
+import { appRouter } from "./router";
+import { createContext } from "./context";
+import { createOAuthCallbackHandler } from "./kimi/auth";
 
 export const config = {
   runtime: "nodejs20.x",
