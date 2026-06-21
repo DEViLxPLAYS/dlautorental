@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router";
 import Navigation from "@/components/Navigation";
+import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/sections/Footer";
 import Home from "./pages/Home";
 import Fleet from "./pages/Fleet";
@@ -21,7 +22,9 @@ function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
       <Route
         path="/"
         element={
@@ -64,6 +67,7 @@ export default function App() {
           </Layout>
         }
       />
-    </Routes>
+      </Routes>
+    </>
   );
 }
