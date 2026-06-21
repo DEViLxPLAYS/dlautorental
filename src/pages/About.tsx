@@ -182,7 +182,7 @@ export default function About() {
               </div>
               <div className="relative bg-[#f1f1f1] flex items-center justify-center p-8">
                 <div className="text-center">
-                  <Car size={48} className="text-[#D4A03A] mx-auto mb-4" />
+                  <img src="/logo.png" alt="DL Auto Rental Logo" className="h-16 w-auto mx-auto mb-4" />
                   <p className="text-lg font-bold text-black mb-2">
                     DL Auto Rental
                   </p>
