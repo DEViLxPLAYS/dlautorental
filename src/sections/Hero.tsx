@@ -339,22 +339,13 @@ export default function Hero() {
         </svg>
       </div>
 
-      {/* Mobile Hero Image */}
-      <div className="md:hidden absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+      {/* Hero Background Car Image - full bleed low opacity on all screens */}
+      <div className="absolute inset-0 pointer-events-none">
         <img
           src="/images/hero-car.jpg"
           alt="Luxury car"
           className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* Hero Car Image for Desktop - positioned on right */}
-      <div className="hidden lg:block absolute right-[5%] bottom-[10%] w-[35%] z-20 pointer-events-none">
-        <img
-          src="/images/hero-car.jpg"
-          alt="Luxury car"
-          className="w-full h-auto object-contain drop-shadow-2xl"
-          style={{ filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.2))" }}
+          style={{ opacity: 0.15 }}
         />
       </div>
     </section>
