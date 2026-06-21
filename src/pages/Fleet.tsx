@@ -136,9 +136,14 @@ export default function Fleet() {
   const [searchQuery, setSearchQuery] = useState("");
   const cardsRef = useRef<HTMLDivElement>(null);
 
-  const { data: dbCars } = trpc.car.list.useQuery({
-    limit: 50,
-  });
+  const { data: dbCars } = trpc.car.list.useQuery(
+    { limit: 50 },
+    {
+      retry: false,
+      // Silently fall back to static data if DB is not configured
+      throwOnError: false,
+    }
+  );
 
   const allCars = dbCars && dbCars.cars.length > 0 ? dbCars.cars : defaultCars;
 

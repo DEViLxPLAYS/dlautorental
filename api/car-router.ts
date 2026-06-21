@@ -16,7 +16,7 @@ export const carRouter = createRouter({
       }).optional()
     )
     .query(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       const filters = [];
       const params = input ?? { limit: 50, offset: 0 };
 
@@ -55,7 +55,7 @@ export const carRouter = createRouter({
   getById: publicQuery
     .input(z.object({ id: z.number() }))
     .query(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       const result = await db
         .select()
         .from(cars)
@@ -82,7 +82,7 @@ export const carRouter = createRouter({
       })
     )
     .mutation(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       const result = await db.insert(cars).values({
         name: input.name,
         brand: input.brand,
@@ -121,7 +121,7 @@ export const carRouter = createRouter({
       })
     )
     .mutation(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       const { id, ...updateData } = input;
       
       const updatePayload: Record<string, unknown> = {};
@@ -146,7 +146,7 @@ export const carRouter = createRouter({
   delete: adminQuery
     .input(z.object({ id: z.number() }))
     .mutation(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       await db.delete(cars).where(eq(cars.id, input.id));
       return { success: true };
     }),
@@ -167,7 +167,7 @@ export const rentalRouter = createRouter({
       })
     )
     .mutation(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       const insertValues: Record<string, unknown> = {
         carId: input.carId,
         customerName: input.customerName,
@@ -185,7 +185,7 @@ export const rentalRouter = createRouter({
   list: adminQuery
     .input(z.object({ status: z.string().optional() }).optional())
     .query(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       const params = input ?? {};
       if (params.status) {
         return db.select().from(rentals).where(eq(rentals.status, params.status as "pending" | "confirmed" | "completed" | "cancelled")).orderBy(desc(rentals.createdAt));
@@ -196,7 +196,7 @@ export const rentalRouter = createRouter({
   updateStatus: adminQuery
     .input(z.object({ id: z.number(), status: z.enum(["pending", "confirmed", "completed", "cancelled"]) }))
     .mutation(async ({ input }) => {
-      const db = getDb();
+      const db = await getDb();
       await db.update(rentals).set({ status: input.status }).where(eq(rentals.id, input.id));
       return { success: true };
     }),

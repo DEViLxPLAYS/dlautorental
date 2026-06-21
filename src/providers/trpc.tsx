@@ -7,7 +7,18 @@ import type { ReactNode } from "react";
 
 export const trpc = createTRPCReact<AppRouter>();
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+      // Don't throw errors as unhandled exceptions - silently fall back
+      throwOnError: false,
+    },
+    mutations: {
+      throwOnError: false,
+    },
+  },
+});
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({

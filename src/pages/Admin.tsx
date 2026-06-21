@@ -29,7 +29,7 @@ export default function Admin() {
 
   // Admin auth check
   const { data: adminData, refetch: refetchAdmin } =
-    trpc.admin.verify.useQuery();
+    trpc.admin.verify.useQuery(undefined, { throwOnError: false, retry: false });
   const isAdmin = adminData?.isAdmin ?? false;
 
   // Cars data
