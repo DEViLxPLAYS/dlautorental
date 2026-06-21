@@ -7,7 +7,7 @@ import { createContext } from "./context";
 import { createOAuthCallbackHandler } from "./kimi/auth";
 
 export const config = {
-  runtime: "nodejs20.x",
+  runtime: "nodejs",
 };
 
 const app = new Hono().basePath("/api");
